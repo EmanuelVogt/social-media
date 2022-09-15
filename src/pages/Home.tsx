@@ -1,6 +1,6 @@
-import React from 'react'
-export function Home (): JSX.Element {
+export function Home(): JSX.Element {
+  
   return (
-    <h1>olá mundo</h1>
+    <h1> awdaadw </h1>
   )
 }
