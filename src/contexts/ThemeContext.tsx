@@ -13,7 +13,7 @@ type ThemeContextData = {
 const ThemeContext = createContext({} as ThemeContextData)
 
 type Props = {
-  children: JSX.Element
+  children: React.ReactNode
 }
 
 export function AppThemeProvider({ children }: Props): JSX.Element {
@@ -31,7 +31,7 @@ export function AppThemeProvider({ children }: Props): JSX.Element {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <ThemeProvider theme={getTheme}>
-        <Box width="100vh" height="100vh" bgcolor={getTheme.palette.background.default}>
+        <Box bgcolor={getTheme.palette.background.default}>
           {children}
         </Box>
       </ThemeProvider>

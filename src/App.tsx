@@ -14,14 +14,12 @@ import '@fontsource/roboto/700.css'
 export function App(): JSX.Element {
   return (
     <AppThemeProvider>
-      <>
+      <Router>
         <CssBaseline />
-        <Router>
-          <Layout>
-            <AppRoutes />
-          </Layout>
-        </Router>
-      </>
+        <Layout>
+          <AppRoutes />
+        </Layout>
+      </Router>
     </AppThemeProvider>
   )
 }

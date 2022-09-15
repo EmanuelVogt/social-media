@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { Avatar, Button, Divider, List, ListItem, Menu, styled } from '@mui/material'
 import { Box } from '@mui/system'
 
@@ -26,6 +27,11 @@ const ButtonAccount = styled(Button)({
 })
 
 export function MenuAvatar({ anchorEl, handleClose, open }: Props): JSX.Element {
+  const navigate = useNavigate()
+
+  const navigateToAccount = (): void => {
+    navigate('/account')
+  }
   return (
     <Menu
       anchorEl={anchorEl}
@@ -73,8 +79,8 @@ export function MenuAvatar({ anchorEl, handleClose, open }: Props): JSX.Element 
               justifyContent: 'center',
             }}
           >
-            <Avatar sx={{ width: 5, height: 5, marginBottom: 2 }}> EV</Avatar>
-            <ButtonAccount> Gerenciar sua conta</ButtonAccount>
+            <Avatar sx={{ width: 5, height: 5, marginBottom: 2 }}>EV</Avatar>
+            <ButtonAccount onClick={navigateToAccount}> Gerenciar sua conta</ButtonAccount>
           </ListItem>
           <Divider />
           <ListItem
