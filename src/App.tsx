@@ -2,7 +2,6 @@ import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import CssBaseline from '@mui/material/CssBaseline'
 
-import { Layout } from './components/Layout'
 import { AppThemeProvider } from './contexts/ThemeContext'
 import { AppRoutes } from './routes'
 
@@ -16,9 +15,7 @@ export function App(): JSX.Element {
     <AppThemeProvider>
       <Router>
         <CssBaseline />
-        <Layout>
-          <AppRoutes />
-        </Layout>
+        <AppRoutes />
       </Router>
     </AppThemeProvider>
   )

@@ -1,7 +1,6 @@
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom'
-import { ListItem, Typography, useTheme } from '@mui/material'
+import { ListItem, SvgIcon, Typography, useTheme } from '@mui/material'
 import Color from 'color'
-
 type Props = {
   isCollapsed: boolean
   to: string
@@ -34,13 +33,14 @@ export function NavItem({ isCollapsed, icon, title, to }: Props): JSX.Element {
         padding: 1,
         '& > svg:first-child': {
           marginRight: '30px',
-          marginLeft: '10px', 
+          marginLeft: '10px',
           fontSize: 24,
+          color: 'rgba(0, 0, 0, 0.54)',
         },
         '&.Mui-selected': {
           backgroundColor: 'rgba(4,102,200, 0.3)',
           '&:hover': {
-            backgroundColor: 'rgba(4,102,200, 0.3)'
+            backgroundColor: 'rgba(4,102,200, 0.3)',
           },
           '& > p': {
             color: `${Color(theme.palette.primary.light).toString()} !important`,
@@ -51,7 +51,7 @@ export function NavItem({ isCollapsed, icon, title, to }: Props): JSX.Element {
         },
       }}
     >
-      {icon}
+      <SvgIcon >{icon}</SvgIcon>
       {!isCollapsed && <Typography>{title}</Typography>}
     </ListItem>
   )

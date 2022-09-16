@@ -100,7 +100,7 @@ export function SideBar({ isCollapsed, children }: Props): JSX.Element {
           ))}
         </Box>
       </Drawer>
-      <Box sx={{ height: '100vh', width: '100%', padding: '20px' }}>
+      <Box sx={{ width: '100vw', height: '100vh', padding: 2 }}>
         <Toolbar />
         {children}
       </Box>

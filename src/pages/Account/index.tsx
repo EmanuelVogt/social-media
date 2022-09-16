@@ -39,7 +39,7 @@ export function Account(): JSX.Element {
   return (
     <>
       <CardHeader title='Configurações da conta' />
-      <Box sx={{ display: 'flex', width: '100%', height: '100%' }}>
+      <Box sx={{ display: 'flex' }}>
         <Card sx={{ width: '100%', height: '100%' }}>
           <Tabs value={value} onChange={handleChange} aria-label='icon position tabs example'>
             <CurstomTabs icon={<AccountCircleIcon />} iconPosition='start' label='Informações' />
