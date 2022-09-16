@@ -1,14 +1,14 @@
-import { Route, Routes } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
-import { Account } from '../pages/Account'
-import { Home } from '../pages/Home'
+import { AuthRoutes } from './AuthRoutes'
+import { LoginRoutes } from './LoginRoutes'
+
 export function AppRoutes(): JSX.Element {
-  return (
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/contacts' element={<h1> Contatos </h1>} />
-      <Route path='/inbox' element={<h1> Inbox </h1>} />
-      <Route path='/account' element={<Account />} />
-    </Routes>
-  )
+  const [userLogged, setUserLogged] = useState<boolean>()
+
+  useEffect(() => {
+    setUserLogged(false)
+  }, [])
+
+  return (userLogged ?? false) ? <AuthRoutes /> : <LoginRoutes />
 }
