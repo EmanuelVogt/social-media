@@ -1,10 +1,12 @@
 import * as React from 'react'
+import { useSelector } from 'react-redux'
 import { CircleNotifications } from '@mui/icons-material'
 import MenuIcon from '@mui/icons-material/Menu'
 import { Avatar, IconButton, Toolbar } from '@mui/material'
 import AppBar from '@mui/material/AppBar'
 import { deepOrange } from '@mui/material/colors'
 
+import { RootState } from '../../../store'
 import { MenuAvatar } from '../MenuAvatar'
 
 import { EmptyDiv, Image } from './styles'
@@ -16,6 +18,7 @@ type Props = {
 export const Header = ({ handleCollapseSideBar }: Props): JSX.Element => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
+  const account = useSelector((state: RootState) => state.account)
 
   const handleClick = (event: React.MouseEvent<HTMLElement>): void => {
     setAnchorEl(event.currentTarget)
@@ -25,6 +28,7 @@ export const Header = ({ handleCollapseSideBar }: Props): JSX.Element => {
     setAnchorEl(null)
   }
 
+  console.log(account)
   return (
     <>
       <AppBar
