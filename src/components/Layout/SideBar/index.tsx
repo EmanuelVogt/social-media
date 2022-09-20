@@ -60,7 +60,7 @@ export type StyleProps = {
 const menuItems = [
   {
     title: 'Home',
-    to: '/',
+    to: '/home',
     icon: <HomeOutlinedIcon />,
   },
   {

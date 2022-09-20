@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { Player } from '@lottiefiles/react-lottie-player'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import FacebookIcon from '@mui/icons-material/Facebook'
@@ -37,6 +38,7 @@ interface IFormInput {
 
 export function Login(): React.ReactElement {
   const { control, handleSubmit } = useForm<IFormInput>()
+  const navigation = useNavigate()
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.up('md'))
   const [showPassword, setShowPassword] = useState(false)
@@ -67,6 +69,7 @@ export function Login(): React.ReactElement {
             },
           }),
         )
+        navigation('/home')
       })
       .catch(() => {
         setOpen(true)

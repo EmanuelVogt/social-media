@@ -1,6 +1,9 @@
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { Avatar, Button, Divider, List, ListItem, Menu, styled } from '@mui/material'
 import { Box } from '@mui/system'
+
+import { logout } from '../../../store/Account.store'
 
 type Props = {
   anchorEl: null | HTMLElement
@@ -28,7 +31,14 @@ const ButtonAccount = styled(Button)({
 
 export function MenuAvatar({ anchorEl, handleClose, open }: Props): JSX.Element {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
+  const handleLogout = (): void => {
+    localStorage.removeItem('@API_TOKEN')
+    dispatch(logout())
+    window.location.replace('/login')
+  }
+  
   const navigateToAccount = (): void => {
     navigate('/account')
   }
@@ -92,7 +102,12 @@ export function MenuAvatar({ anchorEl, handleClose, open }: Props): JSX.Element 
               justifyContent: 'center',
             }}
           >
-            <Button variant='outlined' size='large' sx={{ borderRadius: 20 }}>
+            <Button
+              variant='outlined'
+              size='large'
+              sx={{ borderRadius: 20 }}
+              onClick={handleLogout}
+            >
               Sair
             </Button>
           </ListItem>

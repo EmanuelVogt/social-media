@@ -21,10 +21,8 @@ export function AppRoutes(): JSX.Element {
       </Backdrop>
     )
   }
-
-  const token = localStorage.getItem('@API_TOKEN')
-
   useEffect(() => {
+    const token = localStorage.getItem('@API_TOKEN')
     if (token != null) {
       axios
         .post('http://localhost:3030/api/token-login', { token })
@@ -50,5 +48,9 @@ export function AppRoutes(): JSX.Element {
     setLoad(false)
   }, [])
 
-  return load ? <BackDrop /> : account.user.isLogged ?? false ? <AuthRoutes /> : <LoginRoutes />
+  if (load) {
+    return <BackDrop />
+  }
+
+  return account.user.isLogged ?? false ? <AuthRoutes /> : <LoginRoutes />
 }
